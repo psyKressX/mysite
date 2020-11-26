@@ -14,16 +14,18 @@ const cookie = require("cookie");
 
 const port1 = process.env.PORT || 5000;
 
-app.use(router);
-app.use(users);
-app.use(adminOrders);
-app.use(adminItems);
 app.use(
   cors({
     origin: "http://localhost:3000",
     credentials: true,
   })
 );
+app.use(router);
+app.use(users);
+app.use(adminOrders);
+app.use(adminItems);
+
+app.use(express.static('build'))
 
 const httpServer = http.createServer(app);
 
