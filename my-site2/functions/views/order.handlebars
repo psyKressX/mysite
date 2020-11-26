@@ -1,0 +1,41 @@
+<h3>
+    Thanks for your purchase!
+</h3>
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque finibus iaculis blandit. Proin tempus massa sit
+    amet
+    turpis sollicitudin placerat. Nullam posuere consectetur enim non eleifend. Aenean tristique, sem a bibendum tempor,
+    enim sapien fringilla dui, sed pharetra metus odio eu purus. Mauris ut dui placerat, fermentum massa ac, posuere
+    quam.
+    Pellentesque sit amet lectus fermentum, tincidunt lorem at, molestie mauris. Class aptent taciti sociosqu ad litora
+    torquent per conubia nostra, per inceptos himenaeos. Pellentesque fringilla interdum lacus, at consectetur purus
+    varius
+    in. Ut est ipsum, cursus sed arcu ut, elementum bibendum nisl.
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Unit price</th>
+            <th>Amount</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each order}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{unit_price}}</td>
+            <td>{{qty}}</td>
+            <td>{{extended_price}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<div class="bottom">
+    <p>Subtotal: ${{subtotal}}</p>
+    <p>Shipping: ${{shipping}}</p>
+    <p>Total: ${{total}}</p>
+
+</div>
