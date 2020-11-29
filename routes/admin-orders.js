@@ -11,7 +11,7 @@ const check = require("./functions/check");
 
 const knexDB = knex({
   client: "pg",
-  connection: "postgres://localhost/store2",
+  connection: process.env.MY_DB,
 });
 router.use(
   bodyParser.urlencoded({
@@ -135,18 +135,17 @@ router.post("/ship-order", (req, res) => {
 });
 
 router.post("/list-mail", (req, res) => {
-  let body = `<p>${req.body.email}</p><br />${req.body.body}`
+  let body = `<p>${req.body.email}</p><br />${req.body.body}<br /> <p>Liam Smith</p>`
   mailer.mailer(
     "liam_smith1989@hotmail.com",
-    { name: "my gorgeous Subscribers", body: req.body.body },
+    { name: "MESSAGE FROM MYSITE", body },
     req.body.title,
     "blank",
     (err, data) => {
-      if (err) console.log(err);
-      console.log(data);
+      if (err) return res.status(400).end();
+      return res.status(200).end();
     }
   );
-  return res.status(200).end();
 });
 
 module.exports = router;

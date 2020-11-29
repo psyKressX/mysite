@@ -5,10 +5,10 @@ const hbs = require('nodemailer-express-handlebars');
 
 
 let transporter = nodemailer.createTransport({
-    service: 'SendPlus',
+    service: 'hotmail',
     auth: {
-        user: 'cycrasx@hotmail.com',
-        pass: 'getinzachopa123',
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
     }
 })
 transporter.use('compile', hbs({
@@ -23,7 +23,7 @@ transporter.use('compile', hbs({
 const mailer = (addrss, contxt, subjct, templte, callback) => {
 
     const mail = {
-        from: 'psykressx@gmail.com',
+        from: process.env.EMAIL_USER,
         to: addrss,
         subject: subjct,
         template: templte,

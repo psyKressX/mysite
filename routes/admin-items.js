@@ -13,7 +13,7 @@ const fs = require("fs");
 
 const knexDB = knex({
   client: "pg",
-  connection: "postgres://localhost/store2",
+  connection: process.env.MY_DB,
 });
 router.use(
   bodyParser.urlencoded({

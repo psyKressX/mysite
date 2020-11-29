@@ -30,7 +30,7 @@ const strategy = new jwtStrategy(opts, (payload, next) => {
 passport.use(strategy);
 const knexDB = knex({
     client: "pg",
-    connection: "postgres://localhost/store2",
+    connection: process.env.MY_DB,
 });
 const db = bookshelf(knexDB);
 db.plugin(securePassword);
